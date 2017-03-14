@@ -8,7 +8,7 @@ package latihan;
 import java.util.Scanner;
 
 /**
- * last modification : Mar 14, 2017 5:55:27 AM
+ * last modification : Mar 14, 2017 5:55:27 PM
  * @author Dimas Setiawan
  */
 public class Main {
