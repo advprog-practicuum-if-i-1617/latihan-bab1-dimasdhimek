@@ -21,7 +21,7 @@ public class Main {
         Pacman pacman = new Pacman();
         char input='x';
         do {
-            int point = 5;
+            int score = 5;
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     if (maze.getMaze(i,j)=='#')
@@ -40,17 +40,17 @@ public class Main {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     if(food.getFood(i, j)=='*')
-                        point--;
+                        score--;
                 }
             }
-            System.out.println("Point\t\t: "+point);
+            System.out.println("Score\t\t: "+score);
             System.out.println("Move left\t: "+(10-(pacman.getMove())));
             if (pacman.getMove()<10){
                 System.out.print("Input w, a, s, d to move : ");
                 pacman.move(in.next());
             }
             else {
-                if (point==5){
+                if (score==5){
                     System.out.println("You Win!");
                     input='q';
                 }
