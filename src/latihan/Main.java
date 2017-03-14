@@ -8,7 +8,7 @@ package latihan;
 import java.util.Scanner;
 
 /**
- * last modification : Mar 14, 2017 10:22:27 AM
+ * last modification : Mar 14, 2017 5:55:27 AM
  * @author Dimas Setiawan
  */
 public class Main {
@@ -43,8 +43,8 @@ public class Main {
                         point--;
                 }
             }
-            System.out.println("Point\t: "+point);
-            System.out.println("Move\t: "+pacman.getMove());
+            System.out.println("Point\t\t: "+point);
+            System.out.println("Move left\t: "+(10-(pacman.getMove())));
             if (pacman.getMove()<10){
                 System.out.print("Input w, a, s, d to move : ");
                 pacman.move(in.next());

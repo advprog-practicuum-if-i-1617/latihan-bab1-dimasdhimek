@@ -5,7 +5,7 @@
  */
 package latihan;
 /**
- * last modification : Mar 14, 2017 10:33:21 AM
+ * last modification : Mar 14, 2017 05:55:21 PM
  * @author Dimas Setiawan
  */
 public class Pacman {
@@ -22,9 +22,7 @@ public class Pacman {
         return move;
     }
     public void move(String input){
-        Maze maze = new Maze();
         if ("w".equals(input)){
-            maze.startMaze();
             int yUp=y;
             yUp--;
             if (yUp==0||yUp==9||yUp==2&&x<=2||yUp==3&&x>=4||yUp==5&&x>=2&&x<=4||yUp==5&&x==7||yUp==7&&x>=3)
