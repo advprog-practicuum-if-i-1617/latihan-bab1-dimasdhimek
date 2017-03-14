@@ -8,36 +8,58 @@ package latihan;
 import java.util.Scanner;
 
 /**
- * last modification : Mar 10, 2017 2:33:51 PM
+ * last modification : Mar 14, 2017 10:22:27 AM
  * @author Dimas Setiawan
  */
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Maze maze = new Maze();
+        maze.startMaze();
         Food food = new Food();
         food.startFood();
         Pacman pacman = new Pacman();
-        int move=0;
+        char input='x';
         do {
-            maze.setMaze();
+            int point = 5;
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
-                    if (pacman.getX()==j&&pacman.getY()==i){
-                        System.out.print('@');
-                        food.setFood(i, j);
+                    if (maze.getMaze(i,j)=='#')
+                        System.out.print("#");
+                    else if (pacman.getX()==j&&pacman.getY()==i){
+                        System.out.print("@");
+                        food.setFood(i,j);
                     }
                     else if (food.getFood(i, j)=='*')
-                        System.out.print('*');
+                        System.out.print("*");
                     else
-                        System.out.print(maze.getMaze(i, j));
+                        System.out.print(" ");
                 }
                 System.out.println();
             }
-            System.out.println("Move left : "+(10-move));
-            System.out.print("Input w, a, s, d to move : ");
-            pacman.move(in.next());
-        }while (move <= 10);
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if(food.getFood(i, j)=='*')
+                        point--;
+                }
+            }
+            System.out.println("Point\t: "+point);
+            System.out.println("Move\t: "+pacman.getMove());
+            if (pacman.getMove()<10){
+                System.out.print("Input w, a, s, d to move : ");
+                pacman.move(in.next());
+            }
+            else {
+                if (point==5){
+                    System.out.println("You Win!");
+                    input='q';
+                }
+                else{
+                    System.out.println("You Lose!");
+                    input='q';
+                }
+            }
+        } while (input!='q');
     }
 
 }
